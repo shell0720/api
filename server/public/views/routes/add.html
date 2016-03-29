@@ -1,0 +1,15 @@
+<p>
+  <form ng-submit="search(books)">
+    <input ng-model="books.name" type="text" placeholder="Search a book" />
+    <input type="submit" value="Search" />
+  </form>
+
+  <div ng-repeat="book in data">
+    <h2> {{ book.copyright }} </h2>
+   <p> {{ book.book_title}} </p>
+    <!-- <p> {{ movie.Rated }} </p>
+    <h5> {{ movie.Actors }} </h5>
+    <h6> {{ movie.Plot }}</h6> -->
+    <button ng-click="addMovie(book)">Add Movie</button>
+  </div>
+</p>
