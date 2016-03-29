@@ -10,8 +10,8 @@ app.set("port", (process.env.PORT || 5000));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-mongoose.connect('mongodb://localhost/books_api_app');
-mongoose.model("Books", new Schema({"copyright" : String, "book_title" : String}));
+mongoose.connect('mongodb://localhost/books_api');
+mongoose.model("Books", new Schema({"copyright" : String, "results" : String}));
 var Book = mongoose.model("Books");
 
 app.get("/book", function(req,res){
@@ -27,7 +27,7 @@ app.get("/book", function(req,res){
 app.post("/book", function(req,res){
     console.log(req.body);
 
-    var addedBook = new Movie({"copyright" : req.body.copyright, "book_title" : req.body.book_title, "Rated" : req.body.Rated, "Actors" : req.body.Actors, "Plot": req.body.Plot});
+    var addedBook = new Movie({"copyright" : req.body.copyright, "results" : req.body.results});
     addedBook.save(function(err, data){
         if(err){
           console.log(err);
